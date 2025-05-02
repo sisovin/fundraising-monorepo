@@ -7,6 +7,7 @@ import { LocalStrategy } from './local.strategy';
 import { JwtStrategy } from './jwt.strategy';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { Argon2Module } from 'nestjs-argon2';
+import { AuthController } from './auth.controller';
 
 @Module({
   imports: [
@@ -23,6 +24,7 @@ import { Argon2Module } from 'nestjs-argon2';
     Argon2Module,
   ],
   providers: [AuthService, LocalStrategy, JwtStrategy],
+  controllers: [AuthController],
   exports: [AuthService],
 })
 export class AuthModule {}
